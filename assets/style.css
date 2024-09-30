@@ -6,3 +6,42 @@
 	font-optical-sizing: auto;
 	font-style: normal;
 }
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+nav {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom: 1px solid black;
+	padding: 0.5rem 1rem;
+}
+
+nav .links {
+	align-items: center;
+	display: flex;
+	flex-direction: row;
+	gap: 1rem;
+}
+
+nav .links > a {
+	padding: 0.25rem 0.5rem;
+	border-radius: 0.5rem;
+	text-decoration: none;
+	color: black;
+	transition: all ease-in-out 0.15s;
+}
+
+nav .links > a:hover {
+	background-color: rgba(0, 0, 0, 0.1);
+}
+
+nav .avatar {
+	height: 2rem;
+	width: 2rem;
+	border-radius: 2rem;
+}

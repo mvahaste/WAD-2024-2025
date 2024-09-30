@@ -12,5 +12,4 @@ Group members:
 
 ### Homework #1
 
--   [Code](/hw1)
 -   [Pages]()

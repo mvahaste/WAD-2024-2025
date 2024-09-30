@@ -12,4 +12,4 @@ Group members:
 
 ### Homework #1
 
--   [Pages]()
+-   [Pages](https://mvahaste.github.io/WAD-2024-2025/)

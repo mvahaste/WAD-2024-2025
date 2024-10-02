@@ -6,3 +6,29 @@
 	font-optical-sizing: auto;
 	font-style: normal;
 }
+
+header {
+	background-color: grey;
+	border-radius: 5px;
+}
+
+nav {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 100%;
+}
+
+.left-side-navigation-bar {
+	align-self: flex-start;
+}
+
+.right-side-navigation-bar {
+	align-self: flex-end;
+}
+
+#profile-picture {
+	width: 5vw;
+	height: auto;
+	margin: 0.5vw;
+}

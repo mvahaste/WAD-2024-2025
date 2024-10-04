@@ -1,34 +1,50 @@
 /* Inter */
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
+html {
+	height: 100%;
+}
+
+:root {
+	--border: #d9d9d9;
+}
+
 * {
 	font-family: "Inter", sans-serif;
 	font-optical-sizing: auto;
 	font-style: normal;
-}
-
-body {
 	margin: 0;
 	padding: 0;
 }
 
-nav {
+body.home {
+	position: relative;
+}
+
+header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
-	border-bottom: 1px solid black;
+	border-bottom: 1px solid var(--border);
 	padding: 0.5rem 1rem;
+	background-color: rgba(255, 255, 255, 0.8);
+	backdrop-filter: blur(15px);
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
 }
 
-nav .links {
+header nav {
 	align-items: center;
 	display: flex;
 	flex-direction: row;
 	gap: 1rem;
 }
 
-nav .links > a {
+header nav > a {
 	padding: 0.25rem 0.5rem;
 	border-radius: 0.5rem;
 	text-decoration: none;
@@ -36,12 +52,102 @@ nav .links > a {
 	transition: all ease-in-out 0.15s;
 }
 
-nav .links > a:hover {
+header nav > a:hover {
 	background-color: rgba(0, 0, 0, 0.1);
 }
 
-nav .avatar {
+header .avatar {
 	height: 2rem;
 	width: 2rem;
 	border-radius: 2rem;
+}
+
+main {
+	padding: 4rem 1rem;
+	max-width: 48rem;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	flex-grow: 1;
+}
+
+footer {
+	opacity: 0.5;
+	padding: 0.5rem 1rem;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+footer a {
+	text-decoration: none;
+	color: black;
+}
+
+footer a:hover {
+	text-decoration: underline;
+}
+
+.post {
+	border: solid 1px var(--border);
+	padding: 0.5rem 1rem 1rem;
+	border-radius: 1rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.post > .header {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 0.75rem;
+	margin-top: 0.5rem;
+}
+
+.post > .header > img {
+	border-radius: 2.5rem;
+	width: 2.5rem;
+}
+
+.post > .header .date {
+	flex-grow: 1;
+	text-align: right;
+}
+
+.post > .content {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+}
+
+.post > .content > img {
+	width: 100%;
+	border-radius: 0.5rem;
+}
+
+.post > .content > p {
+	text-align: start;
+}
+
+.post > .interactions {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.post > .interactions > button {
+	padding: 0.5rem 1rem;
+	border-radius: 0.5rem;
+	border: 1px solid var(--border);
+}
+
+.post > .interactions *:hover {
+	cursor: pointer;
 }

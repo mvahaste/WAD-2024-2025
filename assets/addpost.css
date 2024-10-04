@@ -28,7 +28,7 @@ main {
 	padding: 0.5rem;
 }
 
-section {
+.post-input-card {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -46,8 +46,6 @@ form {
 }
 
 button {
-	border-radius: 5px;
-	border: 1px solid black;
 	padding: 5px;
 	transition: background-color 0.15s ease;
 }
@@ -57,12 +55,35 @@ button:hover {
 	background-color: rgb(255, 255, 255);
 }
 
-input#title {
-	padding: 0.5rem;
-}
-
 textarea {
 	resize: none;
 	height: 10rem;
+}
+
+#card-header {
+	color: rgb(97, 97, 97);
+}
+
+form div {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+div > label {
+	font-weight: 500;
+}
+
+.file-input + button {
+	border-radius: 5px;
+	border: 1px solid black;
+}
+
+label ~ input#title,
+label ~ textarea {
 	padding: 0.5rem;
+}
+
+input[type="file"]:hover {
+	cursor: pointer;
 }

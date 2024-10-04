@@ -12,15 +12,21 @@
 			<a href="index.html">Home</a>
 		</nav>
 		<main>
-			<section class="post-input">
-				<h1>Add a post</h1>
+			<section class="post-input-card">
+				<h1 id="card-header">Add a post</h1>
 				<form action="/index.html">
-					<label for="title">Title</label>
-					<input type="text" id="title" name="title" maxlength="50" placeholder="Your title here" required />
-					<label for="body">Post body</label>
-					<textarea name="body" id="body" maxlength="300" placeholder="Write your post here" required></textarea>
-					<label for="file">File</label>
-					<input type="file" id="file" name="file" />
+					<div class="title-input">
+						<label for="title">Title</label>
+						<input type="text" id="title" name="title" maxlength="50" placeholder="Your title here" required />
+					</div>
+					<div class="body-input">
+						<label for="body">Post body</label>
+						<textarea name="body" id="body" maxlength="300" placeholder="Write your post here" required></textarea>
+					</div>
+					<div class="file-input">
+						<label>File</label>
+						<input type="file" id="file" name="file" />
+					</div>
 					<button type="submit">Create post</button>
 				</form>
 			</section>

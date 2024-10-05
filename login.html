@@ -3,32 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="assets/style.css">
-    <link rel="stylesheet" href="assets/login.css">
+    <link rel="stylesheet" href="assets/style.css" />
+    <link rel="stylesheet" href="assets/header.css"/>
+    <link rel="stylesheet" href="assets/login.css"/>
 </head>
 <body>
     <header>
         <nav>
-            <div class="left-side-navigation-bar">
-                <a href="/">Home</a>
-            </div>
-            <div class="right-side-navigation-bar">
-                <a href="login.html"><img class="avatar" src="/assets/images/avatar.png" alt="User avatar"
-                                          id="profile-picture"/></a>
-            </div>
+            <a href="/WAD-2024-2025">Home</a>
         </nav>
+        <!-- <img class="avatar" src="https://ui-avatars.com/api/?background=random&name=Bean+Man"
+        alt="User avatar" /> -->
     </header>
     <main>
-        <h1 id="login-header">Welcome to PostIt</h1>
-        <p><a href="">Create an account</a></p>
-        <p>or</p>
-        <p>Please log in</p>
-        <form>
-            <input type="email" placeholder="Email" name="email" required><br>
-            <input type="password" placeholder="Password" name="password" required><br>
-            <button type="submit">Log in</button>
-        </form>
-        <p><a href="">Forgot password?</a></p>
+        <div id="login-card">
+            <h1 id="login-header">Welcome to PostIt</h1>
+            <section id="login-card-instructions">
+                <p><a href="" id="create-account-button">Create an account</a></p>
+                <p>or</p>
+                <p>Please log in</p>
+            </section>
+            <section id="login-form-box">
+                <form>
+                    <label for="email">Email address</label><br>
+                    <input type="email" id="email" placeholder="Email" name="email" required><br>
+                    <label for="password">Password</label><br>
+                    <input type="password" id="password" placeholder="Password" name="password" required><br>
+                    <button type="submit">Log in</button>
+                </form>
+                <p><a href="">Forgot password?</a></p>
+            </section>
+        </div>
     </main>
 </body>
 </html>

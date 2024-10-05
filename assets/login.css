@@ -41,11 +41,14 @@ main::before {
     z-index: -1; /* Keep the background behind the main content */
 }
 
+header {
+    z-index: 1;
+}
+
 #login-card {
     background-color: rgba(255, 255, 255, 0.69);
 
     border: solid 1px var(--border);
-    padding: 1rem;
     border-radius: 1rem;
     box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.3), 0 0.25rem 0.75rem rgba(0, 0, 0, 0.15);
 
@@ -55,7 +58,7 @@ main::before {
 }
 
 
-@media (max-width: 450px), (max-height: 700px) {
+@media (max-width: 450px), (max-height: 600px) {
     header {
         position: relative;
     }
@@ -63,6 +66,8 @@ main::before {
     #login-card {
         width: 100%;
         height: 100%;
+
+        border-radius: 0;
     }
 }
 
@@ -76,7 +81,7 @@ main::before {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 2rem;
+    margin-bottom: 0.5vh;
 }
 
 #login-card-instructions > p {
@@ -145,7 +150,7 @@ main::before {
     width: 5rem;
     height: 2rem;
     align-self: center;
-    margin: 0.5rem;
+    margin: 0.5vh;
 
     cursor: pointer;
 

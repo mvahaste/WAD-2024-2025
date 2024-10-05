@@ -1,3 +1,8 @@
+:root {
+    --button-bg-color: rgba(216, 216, 216, 0.5);
+    --hovered-button-bg-color: rgba(193, 231, 255, 0.5);
+}
+
 html,
 body {
     height: 100%;
@@ -46,6 +51,19 @@ main::before {
 
     display: flex;
     flex-direction: column;
+    align-items: center;
+}
+
+
+@media (max-width: 450px), (max-height: 700px) {
+    header {
+        position: relative;
+    }
+
+    #login-card {
+        width: 100%;
+        height: 100%;
+    }
 }
 
 #login-header {
@@ -58,7 +76,7 @@ main::before {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
 }
 
 #login-card-instructions > p {
@@ -70,11 +88,12 @@ main::before {
     color: black;
     padding: 0.5rem 1rem;
     border-radius: 2rem;
-    border: solid 1px var(--border);
+    background-color: var(--button-bg-color);
+    transition: background-color 0.2s ease;
 }
 
 #create-account-button:hover {
-    background-color: #efefef;
+    background-color: var(--hovered-button-bg-color);
 }
 
 #login-form-box {
@@ -88,4 +107,55 @@ main::before {
     justify-content: center;
     align-items: center;
     padding: 1rem;
+}
+
+#login-form-box > form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-field-label {
+    margin-bottom: 0.5rem;
+    padding-left: 0.2rem;
+}
+
+.input-field {
+    align-self: center;
+
+    height: 2rem;
+    width: 15rem;
+    padding: 0 1rem;
+
+    border: solid 2px var(--border);
+    border-radius: 1rem;
+
+    outline: none;
+
+    margin-bottom: 1rem;
+
+    transition: border-color 0.2s ease;
+}
+
+.input-field:focus,
+.input-field:hover {
+    border-color: rgba(251, 198, 255, 0.69)
+}
+
+#submit-credentials-button {
+    width: 5rem;
+    height: 2rem;
+    align-self: center;
+    margin: 0.5rem;
+
+    cursor: pointer;
+
+    border-radius: 1rem;
+    border: none;
+
+    background-color: var(--button-bg-color);
+    transition: background-color 0.2s ease;
+}
+
+#submit-credentials-button:hover {
+    background-color: var(--hovered-button-bg-color);
 }

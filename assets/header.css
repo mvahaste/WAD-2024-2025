@@ -38,3 +38,7 @@ header .avatar {
 	width: 2rem;
 	border-radius: 2rem;
 }
+
+header .active {
+	font-weight: bold;
+}

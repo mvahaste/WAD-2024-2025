@@ -53,7 +53,7 @@ footer a:hover {
 	gap: 1rem;
 }
 
-.post > .header {
+.post > .post-header {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
@@ -61,12 +61,12 @@ footer a:hover {
 	margin-top: 0.5rem;
 }
 
-.post > .header > img {
+.post > .post-header > img {
 	border-radius: 2.5rem;
 	width: 2.5rem;
 }
 
-.post > .header .date {
+.post > .post-header .date {
 	flex-grow: 1;
 	text-align: right;
 }

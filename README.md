@@ -7,9 +7,3 @@ Group members:
 1. Mikk Vahaste
 2. Märt Kilgi
 3. Kaur Kivilaan
-
-## Homework links
-
-### Homework #1
-
--   [Pages](https://mvahaste.github.io/WAD-2024-2025/)

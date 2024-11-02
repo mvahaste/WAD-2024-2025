@@ -1,7 +1,7 @@
 // API: https://api.npoint.io/8a752e6d7ecbd9311040
 // Edit: https://www.npoint.io/docs/8a752e6d7ecbd9311040
 const JSON_API_LINK = "https://api.npoint.io/8a752e6d7ecbd9311040";
-const JSON_PATH = "/assets/data/posts.json";
+const JSON_PATH = "WAD-2024-2025/assets/data/posts.json";
 
 window.onload = function() {
     // fetchPostsFromSource(JSON_API_LINK);

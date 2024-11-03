@@ -15,7 +15,14 @@
 				<a href="./addpost.html">Add Post</a>
 				<a href="./login.html">Log In</a>
 			</nav>
-			<img class="avatar" src="https://ui-avatars.com/api/?background=random&name=Bean+Man" alt="User avatar" />
+			<div class="profile-dropdown">
+				<img class="avatar" src="https://ui-avatars.com/api/?background=random&name=Bean+Man" alt="User avatar" />
+				<div class="dropdown-content">
+					<a id="name" href="./">Bean Man</a>
+					<a id="email" href="./">bean.man@ut.ee</a>
+					<a id="logout" href="./">logout</a>
+				</div>
+			</div>
 		</header>
 		<main>
 			<div class="post">
@@ -55,9 +62,10 @@
 				</div>
 				<div class="content">
 					<p>
-						u wanna make cheese? it's EASY. first, YELL at some milk until it freaks out. then throw in some mystery powder (what is it? who knows) and stir it with...
-						something. anything. wait... i dunno... like 10 minutes? 5 years? whatever. smash it into a shape (any shape) and hide it in the darkest corner of ur house.
-						BOOM. cheese.
+						u wanna make cheese? it's EASY. first, YELL at some milk until it freaks out. then throw in some mystery
+						powder (what is it? who knows) and stir it with... something. anything. wait... i dunno... like 10 minutes?
+						5 years? whatever. smash it into a shape (any shape) and hide it in the darkest corner of ur house. BOOM.
+						cheese.
 					</p>
 					<p>#milkmagic #cheeseislife #yellatmilk</p>
 				</div>
@@ -105,5 +113,6 @@
 			let FF_FOUC_FIX;
 		</script>
 		<script type="text/javascript" src="src/js/fetchPosts.js"></script>
+		<script src="src/js/dropdown.js"></script>
 	</body>
 </html>

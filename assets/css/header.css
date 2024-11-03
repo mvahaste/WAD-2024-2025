@@ -38,6 +38,7 @@ header .avatar {
 	height: 2rem;
 	width: 2rem;
 	border-radius: 2rem;
+	cursor: pointer;
 }
 
 header .active {
@@ -52,4 +53,32 @@ header .active {
 	header {
 		padding: 0.5rem;
 	}
+}
+
+.profile-dropdown {
+	position: relative;
+}
+
+.dropdown-content {
+	display: none;
+	flex-direction: column;
+	position: absolute;
+	right: 0;
+	background-color: #f1f1f1;
+	min-width: 160px;
+}
+
+.dropdown-content a {
+	padding: 1rem 1rem;
+	text-decoration: none;
+	color: black;
+}
+
+.dropdown-content a:hover {
+	background-color: #d9d9d9;
+	cursor: pointer;
+}
+
+.dropdown-content.show {
+	display: flex;
 }

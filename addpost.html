@@ -15,7 +15,14 @@
 				<a href="./addpost.html" class="active">Add Post</a>
 				<a href="./login.html">Log In</a>
 			</nav>
-			<img class="avatar" src="https://ui-avatars.com/api/?background=random&name=Bean+Man" alt="User avatar" />
+			<div class="profile-dropdown">
+				<img class="avatar" src="https://ui-avatars.com/api/?background=random&name=Bean+Man" alt="User avatar" />
+				<div class="dropdown-content">
+					<a id="name" href="./">Bean Man</a>
+					<a id="email" href="./">bean.man@ut.ee</a>
+					<a id="logout" href="./">logout</a>
+				</div>
+			</div>
 		</header>
 		<main>
 			<section class="post-input-card">
@@ -37,5 +44,6 @@
 				</form>
 			</section>
 		</main>
+		<script src="/src/js/dropdown.js"></script>
 	</body>
 </html>

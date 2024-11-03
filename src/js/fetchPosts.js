@@ -16,11 +16,11 @@ function createElementWithClass(tagName, DOMClass) {
 
 function fetchPostsFromSource(source) {
     fetch(source)
-        .then((response) => response.json())
+        .then(response => response.json())
         .then(json => {
             const mainElement = document.querySelector("main");
 
-            json.forEach((post) => {
+            json.forEach(post => {
                 const postElement = createElementWithClass("div", "post");
 
                 const postHeader = createElementWithClass("div", "post-header");

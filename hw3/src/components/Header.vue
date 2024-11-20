@@ -9,11 +9,11 @@
 
 <style scoped>
 header {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.75);
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(20px);
-  position: absolute;
+  backdrop-filter: blur(15px);
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -22,10 +22,12 @@ header {
 }
 
 nav {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
 }
 
 nav a {

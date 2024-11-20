@@ -1,6 +1,8 @@
 <template>
   <Header />
-  <router-view />
+  <main>
+    <router-view />
+  </main>
   <Footer />
 </template>
 
@@ -27,11 +29,26 @@ export default {
   padding: 0;
 }
 
+html,
+body {
+  height: 100%;
+}
+
 /* Font rendering, global margins */
 #app {
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  margin: 4.25rem 1rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+main {
+  max-width: 800px;
+  width: 100%;
+  margin: 3.5rem auto 0 auto;
+  padding: 1rem;
 }
 </style>

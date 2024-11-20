@@ -10,11 +10,8 @@
 <style scoped>
 footer {
   max-width: 800px;
+  width: 100%;
   margin: 0 auto;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
   z-index: 50;
   padding: 3rem 0.5rem 0.5rem;
   text-align: center;

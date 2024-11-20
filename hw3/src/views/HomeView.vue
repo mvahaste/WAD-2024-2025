@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
     <h1>Home</h1>
     <p>This is where the posts will be.</p>
   </div>

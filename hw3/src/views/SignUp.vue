@@ -1,8 +1,8 @@
 <template>
-  <div class="home">
+  <div class="signup">
     <img alt="Vue logo" src="../assets/logo.png">
-    <h1>Home</h1>
-    <p>This is where the posts will be.</p>
+    <h1>Sign Up</h1>
+    <p>This is where the user will sign up.</p>
   </div>
 </template>
 

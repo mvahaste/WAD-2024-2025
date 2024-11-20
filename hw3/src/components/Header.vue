@@ -45,3 +45,9 @@ nav a.router-link-exact-active {
   font-weight: 500;
 }
 </style>
+
+<script>
+export default {
+  name: "Header",
+};
+</script>

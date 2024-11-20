@@ -43,3 +43,9 @@ footer a:hover {
   }
 }
 </style>
+
+<script>
+export default {
+  name: "Footer",
+};
+</script>

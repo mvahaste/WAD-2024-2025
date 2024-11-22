@@ -3,7 +3,7 @@
     <h1>Home</h1>
   </div>
   <div class="posts-list">
-    <Post v-for="post in posts" :post="post" />
+    <Post v-for="post in posts" :post="post" :key="post.id" />
   </div>
 </template>
 

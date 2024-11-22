@@ -16,12 +16,15 @@
       <img id="image-content" :src="`${post.image}`" v-if="post.image" />
     </div>
     <div class="interactions">
-      <Button>Like ({{ post.likes }})</Button>
+      <LikeButton :likes="post.likes" :post="post" />
+      <button>Report</button>
     </div>
   </div>
 </template>
 
 <script>
+import LikeButton from "@/components/LikeButton.vue";
+
 export default {
   name: "Post",
   props: {
@@ -29,6 +32,9 @@ export default {
       type: Object,
       required: true,
     },
+  },
+  components: {
+    LikeButton,
   },
   computed: {
     getDate() {
@@ -109,5 +115,7 @@ button:hover {
 
 .interactions {
   display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
 }
 </style>

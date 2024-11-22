@@ -36,6 +36,11 @@ export default createStore({
     addLike({ commit }, id) {
       commit("addLike", id);
     },
+    resetLikes({ state }) {
+      state.posts.forEach(post => {
+        post.likes = 0;
+      });
+    },
   },
   modules: {},
 });

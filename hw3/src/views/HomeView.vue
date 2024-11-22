@@ -1,6 +1,9 @@
 <template>
   <div class="home">
-    <h1>Home</h1>
+    <div class="reset-container">
+      <h1>Home</h1>
+      <button @click="resetLikes">Reset likes</button>
+    </div>
   </div>
   <div class="posts-list">
     <Post v-for="post in posts" :post="post" :key="post.id" />
@@ -8,7 +11,6 @@
 </template>
 
 <script>
-// @ is an alias to /src
 import Post from "@/components/Post.vue";
 import { mapGetters } from "vuex";
 
@@ -26,12 +28,24 @@ export default {
   mounted() {
     this.$store.dispatch("fetchPosts");
   },
+  methods: {
+    resetLikes() {
+      this.$store.dispatch("resetLikes");
+    },
+  },
 };
 </script>
 
 <style scoped>
 .home {
   padding-bottom: 1rem;
+}
+
+.reset-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .posts-list {

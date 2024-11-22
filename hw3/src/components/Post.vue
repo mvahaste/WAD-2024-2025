@@ -97,20 +97,6 @@ h1 {
   border-radius: 0.5rem;
 }
 
-button {
-  padding: 6px;
-  border-radius: 5px;
-  border: 1px solid black;
-  background-color: white;
-  transition: all;
-  transition-duration: 200ms;
-}
-
-button:hover {
-  background-color: rgb(235, 235, 235);
-  cursor: pointer;
-}
-
 .interactions {
   display: flex;
   flex-direction: row;

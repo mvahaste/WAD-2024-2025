@@ -17,7 +17,7 @@ footer {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  font-weight: 500;
+  font-size: 14px;
   opacity: 0.5;
   gap: 1rem;
 }

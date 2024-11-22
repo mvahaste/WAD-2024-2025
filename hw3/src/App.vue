@@ -46,6 +46,19 @@ body {
   height: 100%;
 }
 
+button {
+  padding: 0.5rem 1rem;
+  background-color: #e0e0e0;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #d0d0d0;
+}
+
 main {
   max-width: 800px;
   width: 100%;

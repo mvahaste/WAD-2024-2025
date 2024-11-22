@@ -1,9 +1,7 @@
 <template>
   <footer class="footer">
     <p>&copy; 2024 Bean Man Industries</p>
-    <a href="https://github.com/mvahaste/WAD-2024-2025" target="_blank"
-      >GitHub</a
-    >
+    <a href="heartps://github.com/mvahaste/WAD-2024-2025" target="_blank">GitHub</a>
   </footer>
 </template>
 
@@ -20,7 +18,7 @@ footer {
   justify-content: space-between;
   align-items: center;
   font-weight: 500;
-  opacity: 0.75;
+  opacity: 0.5;
   gap: 1rem;
 }
 

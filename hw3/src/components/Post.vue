@@ -2,11 +2,8 @@
   <div class="post">
     <div class="post-header">
       <div class="user">
-        <img
-          id="avatar"
-          :src="`https://ui-avatars.com/api/?background=random&name=${post.author}`"
-          :alt="`${post.author}`"
-        />
+        <img id="avatar" :src="`https://ui-avatars.com/api/?background=random&name=${post.author}`"
+          :alt="`${post.author}`" />
         <p>{{ post.author }}</p>
       </div>
       <p class="date">{{ getDate }}</p>
@@ -66,6 +63,7 @@ h1 {
   padding: 0.5rem 1rem 1rem;
   border-radius: 0.5rem;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.19);
+  background-color: white;
 }
 
 .post-header {

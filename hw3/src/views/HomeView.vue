@@ -12,7 +12,6 @@
 
 <script>
 import Post from "@/components/Post.vue";
-import { mapGetters } from "vuex";
 
 export default {
   name: "HomeView",
@@ -20,9 +19,8 @@ export default {
     Post,
   },
   computed: {
-    ...mapGetters(["getPosts"]),
     posts() {
-      return this.getPosts;
+      return this.$store.getters.getPosts;
     },
   },
   mounted() {

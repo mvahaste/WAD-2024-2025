@@ -7,6 +7,12 @@
   </header>
 </template>
 
+<script>
+export default {
+  name: "Header",
+};
+</script>
+
 <style scoped>
 header {
   background-color: rgba(255, 255, 255, 0.75);
@@ -48,9 +54,3 @@ nav a.router-link-exact-active {
   font-weight: 500;
 }
 </style>
-
-<script>
-export default {
-  name: "Header",
-};
-</script>

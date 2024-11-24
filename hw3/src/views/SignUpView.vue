@@ -73,6 +73,7 @@ export default {
 
       if (0 < this.errorMessages.length) {
         this.isError = true;
+        this.isAccountCreated = false;
         return;
       }
 
@@ -102,7 +103,7 @@ export default {
   border-radius: 1rem;
   box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.3), 0 0.25rem 0.75rem rgba(0, 0, 0, 0.15);
 
-  padding: 3rem 5rem 4rem 5rem;
+  padding: 1rem 5rem 3rem 5rem;
 
   display: flex;
   flex-direction: column;

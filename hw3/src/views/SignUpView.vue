@@ -51,7 +51,7 @@ export default {
       }
 
       if (!/[a-z].*[a-z]/.test(password)) {
-        errors.push("Password must incluede at least two lowercase letters.");
+        errors.push("Password must include at least two lowercase letters.");
       }
 
       if (!/\d/.test(password)) {

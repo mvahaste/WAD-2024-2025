@@ -5,6 +5,12 @@
   </footer>
 </template>
 
+<script>
+export default {
+  name: "Footer",
+};
+</script>
+
 <style scoped>
 footer {
   max-width: 800px;
@@ -38,9 +44,3 @@ footer a:hover {
   }
 }
 </style>
-
-<script>
-export default {
-  name: "Footer",
-};
-</script>

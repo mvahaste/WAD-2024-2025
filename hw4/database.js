@@ -8,14 +8,27 @@ const pool = new Pool({
   port: "5432",
 });
 
-// Users table
-pool.query(
-  "CREATE TABLE IF NOT EXISTS users (id SERIAL PRIMARY KEY, username TEXT, password TEXT)"
-);
+(async () => {
+  // Users table
+  await pool.query(
+    `CREATE TABLE IF NOT EXISTS users (
+      id SERIAL PRIMARY KEY,
+      email VARCHAR(255) UNIQUE NOT NULL,
+      password VARCHAR(255) NOT NULL
+    )`
+  );
 
-// Posts table
-pool.query(
-  "CREATE TABLE IF NOT EXISTS posts (id SERIAL PRIMARY KEY, author INT, content TEXT, likes INT, created TIMESTAMP DEFAULT CURRENT_TIMESTAMP)"
-);
+  // Posts table
+  await pool.query(
+    `CREATE TABLE IF NOT EXISTS posts (
+      id SERIAL PRIMARY KEY, 
+      author INT NOT NULL, 
+      content TEXT NOT NULL, 
+      likes INT DEFAULT 0, 
+      created TIMESTAMP DEFAULT NOW(), 
+      FOREIGN KEY (author) REFERENCES users(id)
+    )`
+  );
+})();
 
 module.exports = pool;

@@ -11,9 +11,9 @@ app.use(cors());
 // It parses incoming requests with JSON payloads and is based on body-parser.
 app.use(express.json());
 
-// Return "Hello, World!" for requests to the root URL: localhost:3000/
-app.get("/", (req, res) => {
-  res.send("Hello, World!");
+app.use((req, _, next) => {
+  console.log(req.method + " " + req.url);
+  next();
 });
 
 app.listen(port, () => {

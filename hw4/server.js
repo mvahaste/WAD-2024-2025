@@ -38,7 +38,7 @@ const generateJWT = (id) => {
 
 // GET /api/auth
 // Get whether the user is authenticated or not.
-app.get("/auth/authenticate", async (req, res) => {
+app.get("/api/auth", async (req, res) => {
 	const token = req.cookies.jwt;
 	let authenticated = false;
 
@@ -71,7 +71,7 @@ app.get("/auth/authenticate", async (req, res) => {
 
 // POST /api/auth/signup
 // Sign up a new user.
-app.post("/auth/signup", async (req, res) => {
+app.post("/api/auth/signup", async (req, res) => {
 	try {
 		const { email, password } = req.body;
 
@@ -100,7 +100,7 @@ app.post("/auth/signup", async (req, res) => {
 
 // POST /api/auth/login
 // Log in an existing user.
-app.post("/auth/login", async (req, res) => {
+app.post("/api/auth/login", async (req, res) => {
 	try {
 		const { email, password } = req.body;
 
@@ -133,7 +133,7 @@ app.post("/auth/login", async (req, res) => {
 
 // GET /api/auth/logout
 // Log out the user.
-app.get("/auth/logout", (_req, res) => {
+app.get("/api/auth/logout", (_req, res) => {
 	res.status(202).clearCookie("jwt").json({ Msg: "cookie cleared" }).send;
 });
 

@@ -8,7 +8,7 @@
       <label for="email">Email:</label>
       <input type="email" id="email" placeholder="Email" required />
       <label for="message">Message:</label>
-      <textarea id="message" placeholder="Message" required></textarea>
+      <textarea id="message" placeholder="Message" required />
       <button type="submit">Send</button>
     </form>
     <p>This doesn't actually do anything.</p>
@@ -43,6 +43,10 @@ input, textarea {
   padding: 0.5rem;
   border-radius: 0.25rem;
   border: 1px solid #ccc;
+}
+
+.textarea {
+  resize: vertical;
 }
 
 .about input,

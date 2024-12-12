@@ -1,11 +1,21 @@
 import { createRouter, createWebHashHistory } from "vue-router"
 import HomeView from "../views/HomeView.vue"
+import auth from "../auth"
 
 const routes = [
   {
     path: "/",
     name: "Home",
     component: HomeView,
+    beforeEnter: async (_to, _from, next) => {
+      let authResult = await auth.authenticated()
+
+      if (!authResult) {
+        next("/login")
+      } else {
+        next()
+      }
+    },
   },
   {
     path: "/contact",
@@ -33,12 +43,30 @@ const routes = [
     name: "Add Post",
     component: () =>
       import(/* webpackChunkName: "addpost" */ "../views/AddPostView.vue"),
+    beforeEnter: async (_to, _from, next) => {
+      let authResult = await auth.authenticated()
+
+      if (!authResult) {
+        next("/login")
+      } else {
+        next()
+      }
+    },
   },
   {
     path: "/post/:id",
     name: "Post",
     component: () =>
       import(/* webpackChunkName: "post" */ "../views/PostView.vue"),
+    beforeEnter: async (_to, _from, next) => {
+      let authResult = await auth.authenticated()
+
+      if (!authResult) {
+        next("/login")
+      } else {
+        next()
+      }
+    },
   },
 ]
 

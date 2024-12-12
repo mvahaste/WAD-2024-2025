@@ -1,4 +1,4 @@
-const Pool = require("pg").Pool;
+const Pool = require("pg").Pool
 
 const pool = new Pool({
   user: "postgres",
@@ -6,17 +6,17 @@ const pool = new Pool({
   database: "WAD",
   host: "localhost",
   port: "5432",
-});
+})
 
-(async () => {
+;(async () => {
   // Users table
   await pool.query(
     `CREATE TABLE IF NOT EXISTS users (
       id SERIAL PRIMARY KEY,
       email VARCHAR(255) UNIQUE NOT NULL,
       password VARCHAR(255) NOT NULL
-    )`
-  );
+    )`,
+  )
 
   // Posts table
   await pool.query(
@@ -27,8 +27,8 @@ const pool = new Pool({
       likes INT DEFAULT 0, 
       created TIMESTAMP DEFAULT NOW(), 
       FOREIGN KEY (author) REFERENCES users(id)
-    )`
-  );
-})();
+    )`,
+  )
+})()
 
-module.exports = pool;
+module.exports = pool

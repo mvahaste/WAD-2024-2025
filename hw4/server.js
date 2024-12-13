@@ -75,6 +75,19 @@ app.post("/api/auth/signup", async (req, res) => {
 	try {
 		const { email, password } = req.body;
 
+		// If the user already exists, don't allow sign up
+		const user = await pool.query("SELECT * FROM users WHERE email = $1", [
+			email,
+		]);
+
+		if (user.rows.length > 0) {
+			console.log("User with this email already exists.");
+
+			return res
+				.status(409) // Conflict
+				.json({ error: "User with this email already exists." });
+		}
+
 		const salt = await bcrypt.genSalt();
 
 		const bcryptPassword = await bcrypt.hash(password, salt);

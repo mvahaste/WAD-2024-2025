@@ -152,7 +152,10 @@ app.get("/api/auth/logout", (_req, res) => {
 // Get all posts.
 app.get("/api/posts", async (_req, res) => {
 	try {
-		const posts = await pool.query("SELECT * FROM posts");
+		// Get all posts with the author's email by joining the posts and users tables with the author's ID
+		const posts = await pool.query(
+			"SELECT posts.id, posts.content, posts.likes, posts.created, users.email AS author FROM posts JOIN users ON posts.author = users.id",
+		);
 
 		res.json(posts.rows);
 	} catch (err) {
@@ -186,9 +189,14 @@ app.post("/api/posts", async (req, res) => {
 	try {
 		const post = req.body;
 
+		// Get the user ID from the JWT
+		const token = req.cookies.jwt;
+		const decoded = jwt.verify(token, secret);
+		const uuid = decoded.id;
+
 		const newpost = await pool.query(
 			"INSERT INTO posts (author, content) values ($1, $2)    RETURNING*",
-			[post.author, post.content],
+			[uuid, post.content],
 		);
 
 		res.json(newpost);

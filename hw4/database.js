@@ -12,7 +12,7 @@ const pool = new Pool({
 	// Users table
 	await pool.query(
 		`CREATE TABLE IF NOT EXISTS users (
-      id SERIAL PRIMARY KEY,
+      id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
       email VARCHAR(255) UNIQUE NOT NULL,
       password VARCHAR(255) NOT NULL
     )`,
@@ -21,11 +21,11 @@ const pool = new Pool({
 	// Posts table
 	await pool.query(
 		`CREATE TABLE IF NOT EXISTS posts (
-      id SERIAL PRIMARY KEY, 
-      author INT NOT NULL, 
-      content TEXT NOT NULL, 
-      likes INT DEFAULT 0, 
-      created TIMESTAMP DEFAULT NOW(), 
+      id SERIAL PRIMARY KEY,
+      author UUID NOT NULL,
+      content TEXT NOT NULL,
+      likes INT DEFAULT 0,
+      created TIMESTAMP DEFAULT NOW(),
       FOREIGN KEY (author) REFERENCES users(id)
     )`,
 	);

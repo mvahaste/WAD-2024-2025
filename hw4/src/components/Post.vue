@@ -12,7 +12,7 @@
 			<p class="date">{{ getDate }}</p>
 		</div>
 		<div class="content">
-			<p>{{ post.text }}</p>
+			<p>{{ post.content }}</p>
 			<img id="image-content" :src="`${post.image}`" v-if="post.image" />
 		</div>
 		<div class="interactions">

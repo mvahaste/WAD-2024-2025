@@ -89,8 +89,10 @@ app.post("/api/auth/signup", async (req, res) => {
 
 		const token = generateJWT(authUser.rows[0].id);
 
-		res.status(201).cookie("jwt", token, { maxAge: 6000000, httpOnly: true }).json({ user_id: authUser.rows[0].id })
-			.send;
+		res
+			.status(201)
+			.cookie("jwt", token, { maxAge: 6000000, httpOnly: true })
+			.json({ user_id: authUser.rows[0].id }).send;
 	} catch (err) {
 		console.error(err.message);
 
@@ -104,9 +106,12 @@ app.post("/api/auth/login", async (req, res) => {
 	try {
 		const { email, password } = req.body;
 
-		const user = await pool.query("SELECT * FROM users WHERE email = $1", [email]);
+		const user = await pool.query("SELECT * FROM users WHERE email = $1", [
+			email,
+		]);
 
-		if (user.rows.length === 0) return res.status(401).json({ error: "User is not registered" });
+		if (user.rows.length === 0)
+			return res.status(401).json({ error: "User is not registered" });
 
 		/* 
         To authenticate users, you will need to compare the password they provide with the one in the database. 
@@ -118,14 +123,20 @@ app.post("/api/auth/login", async (req, res) => {
         If both are equal then it returns true else returns false.
         */
 
-		const validPassword = await bcrypt.compare(password, user.rows[0].password);
+		const validPassword = await bcrypt.compare(
+			password,
+			user.rows[0].password,
+		);
 
-		if (!validPassword) return res.status(401).json({ error: "Incorrect password" });
+		if (!validPassword)
+			return res.status(401).json({ error: "Incorrect password" });
 
 		const token = generateJWT(user.rows[0].id);
 
-		res.status(201).cookie("jwt", token, { maxAge: 6000000, httpOnly: true }).json({ user_id: user.rows[0].id })
-			.send;
+		res
+			.status(201)
+			.cookie("jwt", token, { maxAge: 6000000, httpOnly: true })
+			.json({ user_id: user.rows[0].id }).send;
 	} catch (error) {
 		res.status(401).json({ error: error.message });
 	}
@@ -157,7 +168,9 @@ app.get("/api/posts/:id", async (req, res) => {
 	try {
 		const { id } = req.params;
 
-		const posts = await pool.query("SELECT * FROM posts WHERE id = $1", [id]);
+		const posts = await pool.query("SELECT * FROM posts WHERE id = $1", [
+			id,
+		]);
 
 		res.json(posts.rows[0]);
 	} catch (err) {
@@ -173,10 +186,10 @@ app.post("/api/posts", async (req, res) => {
 	try {
 		const post = req.body;
 
-		const newpost = await pool.query("INSERT INTO posts (author, content) values ($1, $2)    RETURNING*", [
-			post.author,
-			post.content,
-		]);
+		const newpost = await pool.query(
+			"INSERT INTO posts (author, content) values ($1, $2)    RETURNING*",
+			[post.author, post.content],
+		);
 
 		res.json(newpost);
 	} catch (err) {
@@ -194,10 +207,10 @@ app.put("/api/posts/:id", async (req, res) => {
 
 		const post = req.body;
 
-		const updatepost = await pool.query("UPDATE posts SET (title, body, urllink) = ($2, $3, $4) WHERE id = $1", [
-			id,
-			post.content,
-		]);
+		const updatepost = await pool.query(
+			"UPDATE posts SET (title, body, urllink) = ($2, $3, $4) WHERE id = $1",
+			[id, post.content],
+		);
 
 		res.json(updatepost);
 	} catch (err) {
@@ -213,7 +226,9 @@ app.delete("/api/posts/:id", async (req, res) => {
 	try {
 		const { id } = req.params;
 
-		const deletepost = await pool.query("DELETE FROM posts WHERE id = $1", [id]);
+		const deletepost = await pool.query("DELETE FROM posts WHERE id = $1", [
+			id,
+		]);
 
 		res.json(deletepost);
 	} catch (err) {

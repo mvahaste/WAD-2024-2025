@@ -1,7 +1,9 @@
 <template>
 	<footer class="footer">
 		<p>&copy; 2024 Bean Man Industries</p>
-		<a href="https://github.com/mvahaste/WAD-2024-2025" target="_blank">GitHub</a>
+		<a href="https://github.com/mvahaste/WAD-2024-2025" target="_blank"
+			>GitHub</a
+		>
 	</footer>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-	<button @click="addLike">Like ({{ likes }})</button>
+	<button @click.stop="addLike">Like ({{ likes }})</button>
 </template>
 
 <script>

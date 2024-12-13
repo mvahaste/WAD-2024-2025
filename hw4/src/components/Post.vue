@@ -17,7 +17,7 @@
 		</div>
 		<div class="interactions">
 			<LikeButton :likes="post.likes" :post="post" />
-			<button>Report</button>
+			<button @click.stop="">Report</button>
 		</div>
 	</div>
 </template>

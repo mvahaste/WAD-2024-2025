@@ -213,11 +213,11 @@ app.put("/api/posts/:id", async (req, res) => {
 	try {
 		const { id } = req.params;
 
-		const post = req.body;
+		const { content } = req.body;
 
 		const updatepost = await pool.query(
-			"UPDATE posts SET (title, body, urllink) = ($2, $3, $4) WHERE id = $1",
-			[id, post.content],
+			"UPDATE posts SET content = $2 WHERE id = $1",
+			[id, content],
 		);
 
 		res.json(updatepost);

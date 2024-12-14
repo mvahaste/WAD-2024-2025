@@ -48,13 +48,14 @@ export default {
         headers: {
           "Content-Type": "application/json",
         },
+        credentials: "include",
       })
           .then((response) => {
             if (!response.ok) {
               throw new Error("Failed to delete post.");
             }
             this.post = null;
-            this.fetchPosts();
+            this.posts = [];
             this.successMessage = "Deleted post successfully.";
             return response.json();
           })

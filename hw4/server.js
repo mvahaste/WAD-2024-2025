@@ -36,6 +36,23 @@ const generateJWT = (id) => {
 	return jwt.sign({ id }, secret, { expiresIn: maxAge });
 };
 
+const authenticateJWT = (req, res, next) => {
+	const token = req.cookies.jwt;
+
+	if (!token) {
+		return res.status(401).json({ error: "Authentication required" });
+	}
+
+	jwt.verify(token, secret, (err, decoded) => {
+		if (err) {
+			return res.status(403).json({ error: "Invalid token" });
+		}
+
+		req.userId = decoded.id;
+		next();
+	})
+}
+
 // GET /api/auth
 // Get whether the user is authenticated or not.
 app.get("/api/auth", async (req, res) => {
@@ -163,7 +180,7 @@ app.get("/api/auth/logout", (_req, res) => {
 
 // GET /api/posts
 // Get all posts.
-app.get("/api/posts", async (_req, res) => {
+app.get("/api/posts", authenticateJWT, async (_req, res) => {
 	try {
 		// Get all posts with the author's email by joining the posts and users tables with the author's ID
 		const posts = await pool.query(
@@ -180,7 +197,7 @@ app.get("/api/posts", async (_req, res) => {
 
 // GET /api/posts/:id
 // Get a post by it's ID
-app.get("/api/posts/:id", async (req, res) => {
+app.get("/api/posts/:id", authenticateJWT, async (req, res) => {
 	try {
 		const { id } = req.params;
 
@@ -198,7 +215,7 @@ app.get("/api/posts/:id", async (req, res) => {
 
 // POST /api/posts
 // Create a new post.
-app.post("/api/posts", async (req, res) => {
+app.post("/api/posts", authenticateJWT, async (req, res) => {
 	try {
 		const post = req.body;
 
@@ -222,7 +239,7 @@ app.post("/api/posts", async (req, res) => {
 
 // PUT /api/posts/:id
 // Update a post by it's ID
-app.put("/api/posts/:id", async (req, res) => {
+app.put("/api/posts/:id", authenticateJWT, async (req, res) => {
 	try {
 		const { id } = req.params;
 
@@ -242,8 +259,8 @@ app.put("/api/posts/:id", async (req, res) => {
 });
 
 // DELETE /api/posts/:id
-// Delete a post by it's ID
-app.delete("/api/posts/:id", async (req, res) => {
+// Delete a post by its ID
+app.delete("/api/posts/:id", authenticateJWT, async (req, res) => {
 	try {
 		const { id } = req.params;
 
@@ -261,7 +278,7 @@ app.delete("/api/posts/:id", async (req, res) => {
 
 // DELETE /nuke
 // Delete all posts.
-app.delete("/nuke", async (req, res) => {
+app.delete("/nuke", authenticateJWT, async (req, res) => {
 	try {
 		const deleteAllPosts = await pool.query("DELETE FROM posts");
 

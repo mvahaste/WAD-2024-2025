@@ -4,7 +4,7 @@
 			<h1>Home</h1>
 			<div>
 				<button @click="this.$router.push('/addpost')">Add Post</button>
-				<button @click="logOut">Log Out</button>
+				<!-- <button @click="logOut">Log Out</button> -->
 				<button>Delete All</button>
 			</div>
 		</div>

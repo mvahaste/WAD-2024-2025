@@ -1,17 +1,52 @@
 <template>
 	<header class="header">
 		<nav>
-			<router-link to="/">Home</router-link>
-			<router-link to="/login">Log In</router-link>
-			<router-link to="/signup">Sign Up</router-link>
-			<router-link to="/contact">Contact</router-link>
+      <div id="links">
+        <router-link v-if="isAuthenticated" to="/">Home</router-link>
+        <router-link v-if="!isAuthenticated" to="/login">Log In</router-link>
+        <router-link v-if="!isAuthenticated" to="/signup">Sign Up</router-link>
+        <router-link to="/contact">Contact</router-link>
+      </div>
+      <button @click="logOut" v-if="isAuthenticated" id="nav-button">Logout</button>
 		</nav>
 	</header>
 </template>
 
 <script>
+import auth from "@/auth";
+
 export default {
 	name: "Header",
+  data() {
+    return {
+      isAuthenticated: false,
+    };
+  },
+  created() {
+    this.updateAuthStatus();
+  },
+  watch: {
+    $route(to, from) {
+      this.updateAuthStatus();
+    }
+  },
+  methods: {
+    async updateAuthStatus() {
+      this.isAuthenticated = await auth.authenticated();
+    },
+    logOut() {
+      fetch("http://localhost:3000/api/auth/logout", {
+        credentials: "include",
+      })
+          .then(() => {
+            this.isAuthenticated = false;
+            this.$router.push("/login");
+          })
+          .catch((error) => {
+            console.error("LOG OUT FAILED: " + error);
+          });
+    },
+  }
 };
 </script>
 
@@ -30,6 +65,11 @@ header {
 	padding: 0.5rem;
 }
 
+#links {
+  display: flex;
+  flex-direction: row;
+}
+
 nav {
 	max-width: 800px;
 	width: 100%;
@@ -37,6 +77,7 @@ nav {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
+  justify-content: space-between;
 }
 
 nav a {
@@ -54,5 +95,22 @@ nav a:hover {
 
 nav a.router-link-exact-active {
 	font-weight: 500;
+}
+
+#nav-button {
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  font-weight: 400;
+  color: #000;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.15s;
+  text-align: left;
+  font-size: 1rem;
+}
+
+#nav-button:hover {
+  background-color: rgba(0, 0, 0, 0.05);
 }
 </style>

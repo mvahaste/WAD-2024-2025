@@ -2,7 +2,7 @@
   <div id="login-container">
     <div id="login-card">
       <h1 id="login-header">Login</h1>
-      <form>
+      <div id="form">
         <label for="email" class="input-field-label">Email:</label
         ><br />
         <input
@@ -29,7 +29,7 @@
           <button @click="this.$router.push('/signup')">Signup</button>
         </div>
         <div v-if="errorMessage" class="error">{{ errorMessage }}</div>
-      </form>
+      </div>
     </div>
   </div>
 </template>
@@ -73,8 +73,8 @@ export default {
           .then((data) => {
             console.log(data);
             this.errorMessage = '';
-            //this.$router.push("/");
-            location.assign("/");
+            this.$router.push("/");
+            // location.assign("/");
           })
           .catch((error) => {
             console.log(error.message);
@@ -127,7 +127,7 @@ export default {
   padding: 0;
 }
 
-form {
+#form {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -165,7 +165,7 @@ form {
   margin-top: 1rem;
 }
 
-button {
+#form #buttons button {
   margin: 0 1rem 0 1rem;
 }
 

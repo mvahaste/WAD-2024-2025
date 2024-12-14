@@ -5,7 +5,7 @@
 			<div>
 				<button @click="this.$router.push('/addpost')">Add Post</button>
 				<!-- <button @click="logOut">Log Out</button> -->
-				<button>Delete All</button>
+				<button @click="nukePosts">Delete All</button>
 			</div>
 		</div>
 	</div>
@@ -42,6 +42,27 @@ export default {
 					console.error("LOG OUT FAILED: " + error);
 				});
 		},
+    nukePosts() {
+      fetch("http://localhost:3000/nuke", {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Failed to delete post.");
+            }
+            this.post = null;
+            this.fetchPosts();
+            this.successMessage = "Deleted post successfully.";
+            return response.json();
+          })
+          .catch((error) => {
+            console.error(error);
+            this.errorMessage = "Failed to delete post.";
+          });
+    },
 		fetchPosts() {
 			fetch("http://localhost:3000/api/posts", {
 				credentials: "include",

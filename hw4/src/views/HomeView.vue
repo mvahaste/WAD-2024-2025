@@ -52,7 +52,7 @@ export default {
       })
           .then((response) => {
             if (!response.ok) {
-              throw new Error("Failed to delete post.");
+              throw new Error("Failed to delete posts.");
             }
             this.post = null;
             this.posts = [];

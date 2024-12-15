@@ -206,7 +206,7 @@ app.get("/api/posts/:id", authenticateJWT, async (req, res) => {
 			[id],
 		);
 
-		posts.rows[0].isAuthor = posts.rows[0].author == req.userId;
+		posts.rows[0].isAuthor = posts.rows[0].author == req.user.id;
 
 		res.json(posts.rows[0]);
 	} catch (err) {

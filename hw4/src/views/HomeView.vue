@@ -43,6 +43,9 @@ export default {
 				});
 		},
     nukePosts() {
+      if (!confirm("Are you sure you want to nuke everything? (Can't be reversed)")) {
+        return;
+      }
       fetch("http://localhost:3000/nuke", {
         method: "DELETE",
         headers: {

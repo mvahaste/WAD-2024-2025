@@ -201,9 +201,12 @@ app.get("/api/posts/:id", authenticateJWT, async (req, res) => {
 	try {
 		const { id } = req.params;
 
-		const posts = await pool.query("SELECT * FROM posts WHERE id = $1", [
-			id,
-		]);
+		const posts = await pool.query(
+			"SELECT posts.id, posts.author, posts.content, posts.created FROM posts WHERE id = $1",
+			[id],
+		);
+
+		posts.rows[0].isAuthor = posts.rows[0].author == req.userId;
 
 		res.json(posts.rows[0]);
 	} catch (err) {

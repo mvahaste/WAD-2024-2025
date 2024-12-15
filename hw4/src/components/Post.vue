@@ -29,16 +29,9 @@ export default {
 	},
 	computed: {
 		getDate() {
-			const date = new Date(this.post.created);
-			const options = {
-				year: "numeric",
-				month: "short",
-				day: "numeric",
-				hour: "2-digit",
-				minute: "2-digit",
-				hour12: false,
-			};
-			return date.toLocaleDateString("en-GB", options);
+      const date = new Date(this.post.created);
+      const formattedDate = `${String(date.getDate()).padStart(2, '0')}.${String(date.getMonth() + 1).padStart(2, '0')}.${date.getFullYear()}`;
+      return formattedDate;
 		},
 	},
 	methods: {

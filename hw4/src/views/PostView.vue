@@ -4,9 +4,9 @@
 			<h1>Post</h1>
 			<p>Content:</p>
 			<textarea id="content" v-model="post.content" :disabled="!post.isAuthor"></textarea>
-			<div class="buttons" v-if="post.isAuthor">
-				<button @click="updatePost">Update</button>
-				<button @click="deletePost">Delete</button>
+			<div class="buttons">
+				<button @click="updatePost" :disabled="!post.isAuthor">Update</button>
+				<button @click="deletePost" :disabled="!post.isAuthor">Delete</button>
 			</div>
 		</div>
 		<p v-else>No post found.</p>

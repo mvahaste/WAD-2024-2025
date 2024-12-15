@@ -56,6 +56,11 @@ button:hover {
 	background-color: #d0d0d0;
 }
 
+button:disabled {
+  background-color: #f0f0f0;
+  cursor: not-allowed;
+}
+
 main {
 	max-width: 800px;
 	width: 100%;

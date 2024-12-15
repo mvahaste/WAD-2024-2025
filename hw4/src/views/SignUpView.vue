@@ -109,13 +109,21 @@ export default {
 				credentials: "include",
 				body: JSON.stringify(data),
 			})
-				.then((response) => response.json())
+				.then((response) => {
+          if (!response.ok) {
+            return response.json().then((err => {
+              throw new Error(err.error || "Signup failed");
+            }));
+          }
+          return response.json();
+        })
 				.then((data) => {
 					console.log(data);
 					this.$router.push("/");
 				})
 				.catch((e) => {
 					console.log("SIGN UP FAILED: " + e);
+          window.alert(e.message);
 				});
 		},
 		handleSubmit() {

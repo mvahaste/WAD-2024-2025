@@ -24,7 +24,6 @@ const pool = new Pool({
       id SERIAL PRIMARY KEY,
       author UUID NOT NULL,
       content TEXT NOT NULL,
-      likes INT DEFAULT 0,
       created TIMESTAMP DEFAULT NOW(),
       FOREIGN KEY (author) REFERENCES users(id)
     )`,

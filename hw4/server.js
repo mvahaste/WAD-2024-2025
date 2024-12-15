@@ -184,7 +184,7 @@ app.get("/api/posts", authenticateJWT, async (_req, res) => {
 	try {
 		// Get all posts with the author's email by joining the posts and users tables with the author's ID
 		const posts = await pool.query(
-			"SELECT posts.id, posts.content, posts.likes, posts.created, users.email AS author FROM posts JOIN users ON posts.author = users.id ORDER BY posts.created DESC",
+			"SELECT posts.id, posts.content, posts.created, users.email AS author FROM posts JOIN users ON posts.author = users.id ORDER BY posts.created DESC",
 		);
 
 		res.json(posts.rows);

@@ -75,7 +75,7 @@ export default {
 					return response.json();
 				})
 				.then((data) => {
-					this.posts = data;
+					this.posts = data.reverse();
 				})
 				.catch((error) => {
 					console.error("Error fetching posts: ", error);

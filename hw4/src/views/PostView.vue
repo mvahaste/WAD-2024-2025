@@ -3,8 +3,8 @@
 		<div class="single-post" v-if="post">
 			<h1>Post</h1>
 			<p>Content:</p>
-			<textarea id="content" v-model="post.content"></textarea>
-			<div class="buttons">
+			<textarea id="content" v-model="post.content" :disabled="!post.isAuthor"></textarea>
+			<div class="buttons" v-if="post.isAuthor">
 				<button @click="updatePost">Update</button>
 				<button @click="deletePost">Delete</button>
 			</div>

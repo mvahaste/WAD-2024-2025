@@ -48,7 +48,7 @@ const authenticateJWT = (req, res, next) => {
 			return res.status(403).json({ error: "Invalid token" });
 		}
 
-		req.userId = decoded.id;
+		req.user = decoded;
 		next();
 	});
 };
@@ -220,9 +220,7 @@ app.post("/api/posts", authenticateJWT, async (req, res) => {
 		const post = req.body;
 
 		// Get the user ID from the JWT
-		const token = req.cookies.jwt;
-		const decoded = jwt.verify(token, secret);
-		const uuid = decoded.id;
+		const uuid = req.user.id;
 
 		const newpost = await pool.query(
 			"INSERT INTO posts (author, content) values ($1, $2)    RETURNING*",

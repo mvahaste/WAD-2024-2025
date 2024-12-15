@@ -111,12 +111,4 @@ export default {
 	flex-direction: column;
 	gap: 2rem;
 }
-
-@media (max-width: 768px) {
-	.controls-container {
-		flex-direction: column;
-		justify-content: start;
-		align-items: start;
-	}
-}
 </style>
